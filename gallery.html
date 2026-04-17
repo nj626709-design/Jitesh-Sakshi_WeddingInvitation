@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+}
+
+/* NAV */
+nav {
+    background: #ff4f8b;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff0f5;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes';
+    font-size: 50px;
+    color: #ff4f8b;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(255,79,139,0.4);
+}
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1 { font-size: 35px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="location.html">Location</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Our Gallery</h1>
+    <p>Beautiful moments captured forever</p>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04117.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04130.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04145.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04272.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04461.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04377.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04173.JPG" onclick="openImg(this)">
+    <img src="C:\Users\NIKITA JADHAV\OneDrive\Desktop\Jitesh&Sakshi_Wedding_Invitation\img\Pre-Wedding\DSC04126.JPG" onclick="openImg(this)">
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeImg()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+// LIGHTBOX
+function openImg(img){
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = img.src;
+}
+
+function closeImg(){
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
