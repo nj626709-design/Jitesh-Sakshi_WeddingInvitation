@@ -130,38 +130,41 @@ nav a {
 /* EVENTS */
 .events {
     position: relative;
-    padding: 80px 20px;
-    text-align: center;
+    height: 500px; /* IMPORTANT */
     overflow: hidden;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* BACKGROUND IMAGE */
+/* IMAGE */
 .events .bg-img {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    top: 0;
-    left: 0;
-    z-index: 1;   /* FIXED */
+    z-index: 1;
 }
 
 /* OVERLAY */
 .events .overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    top: 0;
-    left: 0;
-    z-index: 2;   /* FIXED */
+    z-index: 2;
 }
 
 /* CONTENT */
 .events-content {
     position: relative;
-    z-index: 3;   /* ABOVE ALL */
+    z-index: 3;
+    text-align: center;
 }
 .event-grid {
     display: grid;
