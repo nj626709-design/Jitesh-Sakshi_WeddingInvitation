@@ -130,41 +130,38 @@ nav a {
 /* EVENTS */
 .events {
     position: relative;
-    height: 500px; /* IMPORTANT */
+    padding: 80px 20px;
+    text-align: center;
     overflow: hidden;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* IMAGE */
+/* BACKGROUND IMAGE */
 .events .bg-img {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 1;   /* FIXED */
 }
 
 /* OVERLAY */
 .events .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 2;
+    top: 0;
+    left: 0;
+    z-index: 2;   /* FIXED */
 }
 
 /* CONTENT */
 .events-content {
     position: relative;
-    z-index: 3;
-    text-align: center;
+    z-index: 3;   /* ABOVE ALL */
 }
 .event-grid {
     display: grid;
@@ -248,8 +245,7 @@ iframe {
 <section class="hero">
 
     <!-- BACKGROUND IMAGE -->
-    <img src="img/Pre-Wedding/DSC04258.jpg"
-class="bg-img">
+    <img src="img/Pre-Wedding/DSC04258.jpg" class="bg-img">
 
     <!-- OVERLAY -->
     <div class="overlay"></div>
@@ -354,4 +350,5 @@ setInterval(()=>{
 </script>
 
 </body>
+
 </html>
