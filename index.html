@@ -17,10 +17,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; /* reduced padding */
+    padding: 15px 20px;
     color: white;
     z-index: 1000;
     box-sizing: border-box;
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
 }
 #nav-links {
     display: flex;
@@ -51,6 +54,15 @@ nav a {
     height: 3px;
     background: white;
     margin: 5px 0;
+}
+nav div:first-child {
+    font-size: 14px;
+}
+
+@media(max-width:400px){
+    nav div:first-child {
+        font-size: 12px;
+    }
 }
 
 /* MOBILE */
@@ -132,7 +144,12 @@ body {
 .hero h1 {
     font-family: 'Great Vibes';
     font-size: 60px;
-    color: white;
+}
+
+@media(max-width:768px){
+    .hero h1 {
+        font-size: 40px;
+    }
 }
 
 .countdown {
@@ -232,11 +249,16 @@ body {
     grid-template-columns: repeat(3,1fr);
     gap: 10px;
 }
-
 .gallery img {
     width: 100%;
     height: 450px;
     object-fit: cover;
+}
+
+@media(max-width:768px){
+    .gallery img {
+        height: 250px;
+    }
 }
 
 /* LOCATION */
@@ -311,7 +333,7 @@ iframe {
             <h3>Jitesh</h3>
         </div>
         <div>
-            <img src="img/Pre-Wedding//DSC04599.jpg">
+            <img src="img/Pre-Wedding/DSC04599.jpg">
             <h3>Sakshi</h3>
         </div>
     </div>
@@ -321,7 +343,7 @@ iframe {
 <section class="section events">
     
     <!-- BACKGROUND IMAGE -->
-    <img src="img/Pre-Wedding/DSC04261.jpg" class="bg-img">
+    <img src="img/Pre-Wedding/DSC04259.jpg" class="bg-img">
 
     <!-- OVERLAY -->
     <div class="overlay"></div>
@@ -374,6 +396,13 @@ and now we are ready to begin our forever.
     function toggleMenu() {
     document.getElementById("nav-links").classList.toggle("active");
 }
+
+// ✅ CLOSE MENU AFTER CLICK
+document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("nav-links").classList.remove("active");
+    });
+});
 let date = new Date("Apr 26, 2026 13:30:00").getTime();
 
 let d = document.getElementById("d");
@@ -381,7 +410,7 @@ let h = document.getElementById("h");
 let m = document.getElementById("m");
 let s = document.getElementById("s");
 
-setInterval(() => {
+function updateCountdown() {
     let now = new Date().getTime();
     let gap = date - now;
 
@@ -397,7 +426,10 @@ setInterval(() => {
     h.innerHTML = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     m.innerHTML = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
     s.innerHTML = Math.floor((gap % (1000 * 60)) / 1000);
-}, 1000);
+}
+
+updateCountdown();          // ✅ run instantly
+setInterval(updateCountdown, 1000);
 </script>
 </body>
 
