@@ -41,7 +41,52 @@ nav a {
     font-size: 14px; /* slightly smaller */
 }
 
-/* HERO */
+/* HAMBURGER (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    /* show hamburger */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* hide menu initially */
+    #nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #ff4f8b;
+        flex-direction: column;
+        text-align: center;
+        display: none;
+    }
+
+    /* show when active */
+    #nav-links.active {
+        display: flex;
+    }
+
+    /* menu links style */
+    #nav-links a {
+        padding: 15px;
+        display: block;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+}
 /* HERO */
 .hero {
     position: relative;
@@ -231,8 +276,17 @@ iframe {
 
 <!-- NAV -->
 <nav>
-    <div>Wedding</div>
-    <div>
+    <div>Jitesh ❤️ Sakshi</div>
+
+    <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- MENU -->
+    <div id="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="events.html">Events</a>
@@ -336,19 +390,31 @@ and now we are ready to begin our forever.
 </section>
 
 <script>
-let date = new Date("Apr 26, 2026 1:30").getTime();
+let date = new Date("Apr 26, 2026 13:30:00").getTime();
 
-setInterval(()=>{
+let d = document.getElementById("d");
+let h = document.getElementById("h");
+let m = document.getElementById("m");
+let s = document.getElementById("s");
+
+setInterval(() => {
     let now = new Date().getTime();
-    let gap = date-now;
+    let gap = date - now;
 
-    d.innerHTML = Math.floor(gap/(1000*60*60*24));
-    h.innerHTML = Math.floor((gap%(1000*60*60*24))/(1000*60*60));
-    m.innerHTML = Math.floor((gap%(1000*60*60))/(1000*60));
-    s.innerHTML = Math.floor((gap%(1000*60))/1000);
-},1000);
+    if (gap < 0) {
+        d.innerHTML = "0";
+        h.innerHTML = "0";
+        m.innerHTML = "0";
+        s.innerHTML = "0";
+        return;
+    }
+
+    d.innerHTML = Math.floor(gap / (1000 * 60 * 60 * 24));
+    h.innerHTML = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    m.innerHTML = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+    s.innerHTML = Math.floor((gap % (1000 * 60)) / 1000);
+}, 1000);
 </script>
-
 </body>
 
 </html>
