@@ -9,11 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f9f9f9;
-}
 
 /* NAVBAR */
 nav {
@@ -61,6 +56,14 @@ nav a {
 /* MOBILE */
 @media(max-width:768px){
 
+    .menu-toggle {
+        display: block;   /* ✅ SHOW HAMBURGER */
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        z-index: 1001;
+    }
+
     #nav-links {
         position: absolute;
         top: 60px;
@@ -69,22 +72,31 @@ nav a {
         background: #ff4f8b;
         flex-direction: column;
         text-align: center;
-        display: none;   /* ✅ HIDE FIRST */
+        display: none;
     }
 
     #nav-links.active {
-        display: flex;   /* ✅ SHOW ON CLICK */
+        display: flex;
     }
 }
 /* HERO */
 .hero {
     position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    padding: 60px 20px;
+
+    display: flex;              /* ADD BACK */
+    justify-content: center;    /* ADD BACK */
+    align-items: center;        /* ADD BACK */
     text-align: center;
-    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding-top: 70px;   /* ADD THIS */
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
 }
 
 /* IMAGE */
@@ -167,31 +179,8 @@ nav a {
 /* EVENTS */
 .events {
     position: relative;
-    height: 190px;   /* MUST */
-    overflow: hidden;
+    padding: 60px 20px;   /* ✅ use padding instead of fixed height */
     color: white;
-}
-
-/* IMAGE */
-.bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-/* OVERLAY */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 2;
 }
 
 /* CONTENT */
@@ -382,6 +371,9 @@ and now we are ready to begin our forever.
 </section>
 
 <script>
+    function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
+}
 let date = new Date("Apr 26, 2026 13:30:00").getTime();
 
 let d = document.getElementById("d");
