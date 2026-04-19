@@ -144,7 +144,7 @@ nav a {
     object-fit: cover;
     top: 0;
     left: 0;
-    z-index: -2;
+    z-index: 1;   /* FIXED */
 }
 
 /* OVERLAY */
@@ -155,13 +155,13 @@ nav a {
     background: rgba(0,0,0,0.5);
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 2;   /* FIXED */
 }
 
 /* CONTENT */
 .events-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;   /* ABOVE ALL */
 }
 .event-grid {
     display: grid;
