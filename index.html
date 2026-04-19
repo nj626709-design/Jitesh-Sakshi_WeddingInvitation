@@ -27,6 +27,9 @@ nav {
     z-index: 1000;
     box-sizing: border-box;
 }
+#nav-links {
+    display: flex;
+}
 
 nav div:last-child {
     display: flex;
@@ -58,12 +61,6 @@ nav a {
 /* MOBILE */
 @media(max-width:768px){
 
-    /* show hamburger */
-    .menu-toggle {
-        display: block;
-    }
-
-    /* hide menu initially */
     #nav-links {
         position: absolute;
         top: 60px;
@@ -72,19 +69,11 @@ nav a {
         background: #ff4f8b;
         flex-direction: column;
         text-align: center;
-        display: none;
+        display: none;   /* ✅ HIDE FIRST */
     }
 
-    /* show when active */
     #nav-links.active {
-        display: flex;
-    }
-
-    /* menu links style */
-    #nav-links a {
-        padding: 15px;
-        display: block;
-        border-top: 1px solid rgba(255,255,255,0.2);
+        display: flex;   /* ✅ SHOW ON CLICK */
     }
 }
 /* HERO */
@@ -175,39 +164,39 @@ nav a {
 /* EVENTS */
 .events {
     position: relative;
-    padding: 80px 20px;
-    text-align: center;
+    height: 190px;   /* MUST */
     overflow: hidden;
     color: white;
 }
 
-/* BACKGROUND IMAGE */
-.events .bg-img {
+/* IMAGE */
+.bg-img {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     top: 0;
     left: 0;
-    z-index: 1;   /* FIXED */
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    z-index: 1;
 }
 
 /* OVERLAY */
-.events .overlay {
+.overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    top: 0;
-    left: 0;
-    z-index: 2;   /* FIXED */
+    z-index: 2;
 }
 
 /* CONTENT */
 .events-content {
     position: relative;
-    z-index: 3;   /* ABOVE ALL */
+    z-index: 3;
 }
+
 .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
